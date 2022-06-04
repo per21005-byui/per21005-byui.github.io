@@ -1,0 +1,11 @@
+
+nav{
+    display: grid;
+    grid-auto-flow: column;
+}
+nav a {
+    display: block;
+    /*width: 100px;*/
+    height: 50px;
+
+  }
