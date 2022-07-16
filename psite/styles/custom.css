@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Source+Sans+Pro:wght@300;400&family=Vollkorn+SC&family=Vollkorn:wght@600&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css");
+
+:root {
+    /* change the values below to your colors from your palette */
+    --primary-color: #FFAE4B;
+    --secondary-color: #D32F23;
+    --accent1-color: #022033;
+    --accent2-color: #ffffff;
+    --accent3-color: #107FAA;
+
+    /* change the values below to your chosen font(s) */
+    --heading-font: 'Cascadia Code', "Source Sans Pro", "DejaVu Sans", Verdana, sans-serif;
+    --subtitle-font: Vollkorn, Serif;
+    --paragraph-font: 'Cascadia Code', "Helvetica Neue", Helvetica, sans-serif;
+    --quote-font: "Volkorn SC", serif;
+
+    /* these colors below should be chosen from among your palette colors above */
+    --headline-color-on-white: var(--accent1-color);
+    /* headlines on a white background */
+    --headline-color-on-color: var(--accent1-color);
+    /* headlines on a colored background */
+    --paragraph-color-on-white: var(--accent1-color);
+    /* paragraph text on a white background */
+    --paragraph-color-on-color: var(--accent1-color);
+    /* paragraph text on a colored background */
+    --paragraph-background-color: #ffffff00;
+    --nav-link-color: #ffffff;
+    --nav-background-color: var(--accent1-color);
+    --nav-hover-link-color: var(--primary-color);
+    --nav-hover-background-color: var(--accent3-color);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--headline-color-on-white);
+    font-family: var(--heading-font);
+}
+
+p {
+    color: var(--paragraph-color-on-color);
+    font-family: var(--paragraph-font);
+}
+
+body {
+    display: grid;
+    width: 100%;
+    background-color: var(--primary-color);
+    margin: 0;
+    grid-template-areas: "nav nav"
+        "section aside"
+        "footer footer";
+    grid-template-rows: 100px 1fr 50px;
+    grid-template-columns: 50% 1fr;
+    row-gap: 10px;
+
+}
+
+/* HEADER STUFF*/
+header {
+    grid-area: nav;
+    background-color: var(--nav-background-color);
+    display: grid;
+    grid-template-columns: 150px auto;
+}
+
+nav {
+    display: flex;
+    margin-left: auto;
+    margin-right: 100px;
+    justify-content: space-around;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-flex;
+    width: 100px;
+    height: 100%;
+}
+
+nav li a {
+    display: block;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    height: 100%;
+    line-height: 100px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--accent2-color);
+    font-family: var(--heading-font);
+}
+
+li a:hover {
+    background-color: var(--accent3-color);
+}
+
+.logo {
+    width: 300px;
+    padding: 10px 10px;
+
+}
+
+.logo-max {
+    display: inline-block;
+}
+
+.logo .logo-min {
+    display: none;
+}
+
+/* SECTION STUFF */
+section {
+    grid-area: section;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+}
+
+/* ASIDE STUFF */
+aside {
+    grid-area: aside;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: var(--secondary-color);
+}
+
+aside img {
+    display: block;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+aside figcaption {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    font-family: vollkorn;
+    color: var(--accent2-color);
+}
+
+/*FOOTER STUFF*/
+footer {
+    grid-area: footer;
+    background-color: var(--nav-background-color);
+    display: grid;
+    grid-template-columns: 300px auto;
+}
+
+.copyright {
+    margin-left: 10px;
+    color: var(--accent2-color);
+}
+
+.social {
+    display: flex;
+    margin-left: auto;
+    margin-right: 100px;
+    justify-content: space-around;
+}
+
+footer a {
+    display: inline-block;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    height: 100%;
+    line-height: 100px;
+    color: var(--accent2-color);
+    text-decoration: none;
+}
