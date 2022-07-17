@@ -54,6 +54,8 @@ body {
         "footer footer";
     grid-template-rows: 100px 1fr 50px;
     grid-template-columns: 50% 1fr;
+    /*align-items: center;*/
+    justify-items: center;
     row-gap: 10px;
 
 }
@@ -61,6 +63,7 @@ body {
 /* HEADER STUFF*/
 header {
     grid-area: nav;
+    width: 100%;
     background-color: var(--nav-background-color);
     display: grid;
     grid-template-columns: 150px auto;
@@ -188,6 +191,7 @@ aside:hover figcaption {
 /*FOOTER STUFF*/
 footer {
     grid-area: footer;
+    width: 100%;
     background-color: var(--nav-background-color);
     display: grid;
     grid-template-columns: 300px auto;
@@ -217,6 +221,9 @@ footer a {
 }
 
 /*TIMELINE STUFF*/
+/* I grabbed this from w3schools and modified to fit
+   some items required fixes and I learned the calc()
+   function in the process */
 
 .timeline {
     position: relative;
@@ -226,7 +233,7 @@ footer a {
     grid-area: 2/1/3/3;
 }
 
-/* The actual timeline (the vertical ruler) */
+/* vertical line */
 .timeline::after {
     content: '';
     position: absolute;
@@ -238,7 +245,7 @@ footer a {
     margin-left: -3px;
 }
 
-/* Container around content */
+/* timeline item container */
 .container {
     padding: 10px 40px;
     position: relative;
@@ -246,7 +253,7 @@ footer a {
     width: calc(50% - 80px);
 }
 
-/* The circles on the timeline */
+/* timeline position marker */
 .container::after {
     content: '';
     position: absolute;
@@ -260,17 +267,17 @@ footer a {
     z-index: 1;
 }
 
-/* Place the container to the left */
+/* left sid modifier */
 .left {
     left: 0;
 }
 
-/* Place the container to the right */
+/* right side modifier */
 .right {
     left: 50%;
 }
 
-/* Add arrows to the left container (pointing right) */
+/* li'l arrow to the right*/
 .left::before {
     content: " ";
     height: 0;
@@ -284,7 +291,7 @@ footer a {
     border-color: transparent transparent transparent var(--accent1-color);
 }
 
-/* Add arrows to the right container (pointing left) */
+/* li'l arrow to the left */
 .right::before {
     content: " ";
     height: 0;
@@ -298,12 +305,12 @@ footer a {
     border-color: transparent var(--accent1-color) transparent transparent;
 }
 
-/* Fix the circle for containers on the right side */
+/* some fixes */
 .right::after {
     left: -16px;
 }
 
-/* The actual content */
+/* content container */
 .content {
     padding: 20px 30px;
     background-color: var(--accent1-color);
@@ -312,6 +319,7 @@ footer a {
 
 }
 
+/* style fixes*/
 .content h1,
 .content h2,
 .content h3,
@@ -320,4 +328,89 @@ footer a {
 .content li {
     color: #ffffff !important;
     font-family: var(--paragraph-font);
+}
+
+/*------------------------------------------------*/
+/*                Insterests stuff                */
+/*------------------------------------------------*/
+
+.intwalltitle {
+    position: absolute;
+    top: 90px;
+    left: 10px;
+}
+
+.intwall {
+    margin-top: 100px;
+    grid-area: 2/1/3/3;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.intwall h2 {
+    font-family: var(--paragraph-font);
+    font-weight: bold;
+    /*font-size: 2rem;*/
+}
+
+.intwall p {
+    font-family: var(--paragraph-font);
+    /*font-size: 1rem;*/
+}
+
+.intwall ul,
+.intwall li {
+    list-style: none;
+}
+
+.intwall ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.intwall ul li .sticky {
+    text-decoration: none;
+    color: var(--paragraph-color-on-color);
+    background: var(--accent3-color);
+    display: block;
+    height: 15em;
+    width: 15em;
+    padding: 1em;
+    box-shadow: 5px 5px 7px #d32f2379;
+    transform: rotate(-6deg);
+    transition: transform .15s linear;
+}
+
+.intwall ul li:nth-child(even) .sticky {
+    transform: rotate(4deg);
+    position: relative;
+    top: 5px;
+    /*background: #cfc;*/
+}
+
+.intwall ul li:nth-child(3n) .sticky {
+    transform: rotate(-3deg);
+    position: relative;
+    top: -5px;
+    /*background: #ccf;*/
+}
+
+.intwall ul li:nth-child(5n) .sticky {
+    transform: rotate(5deg);
+    position: relative;
+    top: -10px;
+}
+
+.intwall ul li .sticky:hover,
+.intwall ul li .sticky:focus {
+    box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+    transform: scale(1.25);
+    position: relative;
+    z-index: 5;
+}
+
+.intwall ul li {
+    margin: 1em;
 }
