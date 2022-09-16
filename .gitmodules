@@ -1,0 +1,6 @@
+[submodule "wdd230"]
+	path = wdd230
+	url = https://github.com/per21005-byui/wdd230.git
+[submodule "cse121b"]
+	path = cse121b
+	url = https://github.com/per21005-byui/cse121b.git
